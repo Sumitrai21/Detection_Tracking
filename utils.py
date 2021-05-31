@@ -24,3 +24,27 @@ def draw_box(image,faces):
 
 
     return image
+
+
+def IoU(tracker_image,predicted_image):
+    xA = max(tracker_image[0],predicted_image[0])
+    yA = max(tracker_image[1],predicted_image[1])
+    xB = max(tracker_image[2],predicted_image[2])
+    yB = max(tracker_image[3],predicted_image[3])
+
+    interArea = max(0,xB-xA+1)*max(0,yB-yA+1)
+
+    tracker_image_area = (tracker_image[2]-tracker_image[0]+1)*(tracker_image[3]-tracker_image[1]+1)
+    predicted_image_area = (predicted_image[2]-predicted_image[0]+1)*(predicted_image[3]-predicted_image[1]+1)
+
+    iou = interArea/ float(tracker_image_area+predicted_image_area-interArea)
+
+    return iou
+
+
+
+def compare_boxes(trackers,faces):
+    coor = []
+    for face in faces: 
+
+

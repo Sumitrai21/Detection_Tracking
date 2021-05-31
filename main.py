@@ -3,7 +3,7 @@ import numpy as np
 import dlib
 
 from detector import face_detector,rect_to_bb
-from tracker import LucasKanade, draw_circle, update_trackers
+from tracker import LucasKanade, draw_circle, update_trackers, create_box
 from utils import draw_box
 
 
@@ -70,8 +70,9 @@ def test():
                     trackers.append(tracker)
 
             is_tracker = False
-
+        print("Number of trackers: ",len(trackers))
         frame = update_trackers(frame,trackers,old_image,new_image)
+        frame = create_box(trackers,frame,h=200,w=200)
         old_image = new_image.copy()
 
 
@@ -86,6 +87,6 @@ def test():
 
 
 if __name__ == '__main__':
-    test()
+    main()
 
 

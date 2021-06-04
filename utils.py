@@ -44,7 +44,7 @@ def IoU(tracker_image,predicted_image):
 
 
 def compare_boxes(trackers,faces):
-    coor = []
-    for face in faces: 
+    pass
+
 
 

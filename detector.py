@@ -22,7 +22,7 @@ def face_detector(image):
     detector = dlib.get_frontal_face_detector()
     
     faces = detector(gray_image)
-    print(len(faces))
+    #print(len(faces))
 
 
     return faces

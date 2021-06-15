@@ -28,7 +28,7 @@ class LucasKanade:
 def lucas_kanade(old_gray,gray_frame=None,old_points = None):
     # This function uses the lucas kanade optical flow,i.e the tracker
     lk_params = dict(winSize=(10,10),
-                maxLevel = 2,
+                maxLevel = 3,
                 criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT,10,0.3))
   
     old_points = np.array([old_points],dtype=np.float32)
